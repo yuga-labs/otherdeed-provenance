@@ -1,7 +1,7 @@
 require 'json'
 require 'digest'
 
-lands = JSON.parse(File.read('./land_metadata.json'))
+lands = JSON.parse(File.read('./land_metadata.json'));1
 
 provenance = {
     land_metadata: [],
@@ -49,13 +49,13 @@ lands.each do |land|
     attributes = land['metadata'].clone
     metadata = {attributes: generate_attributes_list(attributes)}
     provenance[:land_metadata] << metadata.clone
-end
+end;1
 
-kodas = JSON.parse(File.read('./koda_metadata.json'))
+kodas = JSON.parse(File.read('./koda_metadata.json'));1
 
-koda.each do |koda|
+kodas.each do |koda|
     provenance[:koda_metadata] << {attributes: koda}
-end
+end;1
 
 provenance_hash = Digest::SHA256.hexdigest(provenance.to_json)
 File.write("provenance_hash.txt", provenance_hash)
