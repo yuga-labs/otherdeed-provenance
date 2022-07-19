@@ -1,0 +1,1 @@
+land_metadata.json filter=lfs diff=lfs merge=lfs -text
